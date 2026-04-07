@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#00707D">
+<meta name="description" content="Front Development — moderna stambena zgrada u Horvatovoj ulici, Zagreb. 19 stanova, podzemna garaža, odlična lokacija u naselju Klara.">
+<meta name="keywords" content="Front Development, stanovi Zagreb, Horvatova ulica, Klara, novogradnja Zagreb, prodaja stanova">
+<meta name="robots" content="index, follow">
+<title>Front Development — Stambena zgrada u Horvatovoj ulici, Zagreb</title>
+
+<link rel="canonical" href="https://front.hr/">
+<link rel="alternate" hreflang="hr" href="https://front.hr/">
+<link rel="alternate" hreflang="en" href="https://front.hr/en/">
+<link rel="alternate" hreflang="uk" href="https://front.hr/ua/">
+<link rel="alternate" hreflang="x-default" href="https://front.hr/">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://front.hr/">
+<meta property="og:title" content="Front Development — Stambena zgrada u Horvatovoj ulici">
+<meta property="og:description" content="Moderna stambena zgrada s 19 stanova u mirnom dijelu Zagreba.">
+<meta property="og:image" content="https://front.hr/exterior-front.jpg">
+<meta property="og:locale" content="hr_HR">
+
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="48x48" href="favicon-48.png">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96.png">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+<link rel="apple-touch-icon" href="favicon-192.png">
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"RealEstateAgent","name":"Front Development d.o.o.","url":"https://front.hr","image":"https://front.hr/exterior-front.jpg","description":"Front Development gradi modernu stambenu zgradu u Horvatovoj ulici u Zagrebu — 19 stanova, podzemna garaža i suvremena arhitektura u naselju Klara.","telephone":"+385916163152","email":"info@front.hr","address":{"@type":"PostalAddress","streetAddress":"Horvatova ulica","addressLocality":"Zagreb","postalCode":"10000","addressCountry":"HR"},"geo":{"@type":"GeoCoordinates","latitude":45.763233,"longitude":15.977296}}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --primary: #00707D;
+  --primary-dark: #004E58;
+  --primary-light: #9CCCBB;
+  --text: #181D24;
+  --text-light: #5a6470;
+  --bg: #ffffff;
+  --bg-alt: #f7f8f8;
+  --bg-dark: #181D24;
+  --border: rgba(0,0,0,0.08);
+  --font-h: 'PT Serif', Georgia, serif;
+  --font-b: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.04);
+  --shadow-md: 0 8px 24px rgba(0,0,0,0.08);
+  --shadow-lg: 0 20px 60px rgba(0,0,0,0.12);
+}
+*,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: var(--font-b);
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: 0; background: none; }
+h1,h2,h3,h4 { font-family: var(--font-h); font-weight: 700; line-height: 1.15; letter-spacing: -0.01em; }
+h1 { font-size: clamp(2rem, 4.5vw, 3.75rem); }
+h2 { font-size: clamp(1.65rem, 3.2vw, 2.5rem); }
+h3 { font-size: 1.2rem; }
+h4 { font-size: 1rem; }
+.accent { color: var(--primary); }
+.container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+/* BUTTONS */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: 8px; padding: 12px 26px;
+  border-radius: 6px;
+  font-family: var(--font-b); font-size: 14px; font-weight: 500;
+  text-transform: uppercase; letter-spacing: 0.05em;
+  transition: all 0.25s; white-space: nowrap; cursor: pointer;
+  border: 2px solid transparent;
+}
+.btn-sm { padding: 9px 18px; font-size: 12px; }
+.btn-block { width: 100%; }
+.btn-primary { background: var(--primary); color: #fff; }
+.btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,112,125,0.25); }
+.btn-outline { background: transparent; color: var(--primary); border-color: var(--primary); }
+.btn-outline:hover { background: var(--primary); color: #fff; }
+.btn-outline-light { background: transparent; color: #fff; border-color: rgba(255,255,255,0.6); }
+.btn-outline-light:hover { background: #fff; color: var(--primary); border-color: #fff; }
+
+/* HEADER */
+.site-header {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(255,255,255,0.96);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  height: 68px;
+}
+.header-inner { display: flex; align-items: center; justify-content: space-between; height: 100%; gap: 20px; }
+.logo { display: flex; flex-direction: column; line-height: 1; flex-shrink: 0; }
+.logo-text { font-family: var(--font-h); font-size: 24px; font-weight: 700; letter-spacing: 0.08em; color: var(--text); }
+.logo-sub { font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--primary); margin-top: 2px; }
+.main-nav ul { display: flex; list-style: none; gap: 32px; }
+.main-nav a { font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; transition: color 0.2s; position: relative; }
+.main-nav a:hover { color: var(--primary); }
+.main-nav a::after { content: ''; position: absolute; left: 0; bottom: -6px; width: 0; height: 2px; background: var(--primary); transition: width 0.25s; }
+.main-nav a:hover::after { width: 100%; }
+.header-right { display: flex; align-items: center; gap: 16px; }
+.lang-switcher { display: flex; gap: 4px; background: var(--bg-alt); border-radius: 6px; padding: 3px; }
+.lang-btn { padding: 5px 10px; font-size: 11px; font-weight: 600; letter-spacing: 0.05em; border-radius: 4px; color: var(--text-light); transition: all 0.2s; }
+.lang-btn:hover { color: var(--primary); }
+.lang-btn.active { background: var(--primary); color: #fff; }
+.menu-toggle { display: none; flex-direction: column; gap: 5px; padding: 8px; }
+.menu-toggle span { width: 22px; height: 2px; background: var(--text); transition: all 0.3s; }
+.menu-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.menu-toggle.active span:nth-child(2) { opacity: 0; }
+.menu-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.mobile-menu { position: fixed; top: 68px; left: 0; right: 0; background: #fff; z-index: 99; border-bottom: 1px solid var(--border); box-shadow: var(--shadow-md); }
+.mobile-menu[hidden] { display: none; }
+.mobile-menu nav ul { list-style: none; padding: 8px 24px; }
+.mobile-menu nav li { border-bottom: 1px solid var(--border); }
+.mobile-menu nav li:last-child { border-bottom: 0; }
+.mobile-menu nav a { display: block; padding: 14px 0; font-size: 14px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; }
+
+/* HERO - reduced height */
+.hero {
+  position: relative;
+  min-height: 78vh;
+  display: flex; align-items: center;
+  color: #fff; overflow: hidden;
+  padding-top: 68px;
+}
+.hero-bg { position: absolute; inset: 0; z-index: 1; }
+.hero-bg img { width: 100%; height: 100%; object-fit: cover; }
+.hero-overlay { position: absolute; inset: 0; z-index: 2; background: linear-gradient(180deg, rgba(0,30,35,0.55) 0%, rgba(0,30,35,0.35) 50%, rgba(0,30,35,0.75) 100%); }
+.hero-content { position: relative; z-index: 3; max-width: 720px; padding: 40px 0; }
+.hero-eyebrow { font-size: 12px; text-transform: uppercase; letter-spacing: 0.2em; font-weight: 500; margin-bottom: 18px; opacity: 0.9; }
+.hero h1 { margin-bottom: 18px; text-shadow: 0 2px 20px rgba(0,0,0,0.3); }
+.hero h1 .accent { color: var(--primary-light); }
+.hero-lead { font-size: clamp(0.95rem, 1.4vw, 1.15rem); max-width: 560px; margin-bottom: 28px; opacity: 0.95; }
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+/* STATS - tighter */
+.stats-bar { background: var(--bg-dark); color: #fff; padding: 40px 0; }
+.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.stat { text-align: center; }
+.stat-icon { width: 40px; height: 40px; margin: 0 auto 10px; color: var(--primary-light); }
+.stat-icon svg { width: 100%; height: 100%; }
+.stat-num { font-family: var(--font-h); font-size: 1.7rem; font-weight: 700; margin-bottom: 4px; }
+.stat-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; opacity: 0.7; }
+
+/* SECTIONS - tighter */
+section { padding: 64px 0; }
+.section-eyebrow { display: inline-block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.2em; font-weight: 500; color: var(--primary); margin-bottom: 12px; }
+.section-head { text-align: center; max-width: 700px; margin: 0 auto 40px; }
+.section-head h2 { margin-bottom: 16px; }
+.section-lead { font-size: 0.98rem; color: var(--text-light); }
+
+/* ABOUT */
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+.carousel { position: relative; border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-lg); aspect-ratio: 4/3; background: #f0f0f0; }
+.carousel-track { position: relative; width: 100%; height: 100%; }
+.carousel-track img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.6s ease; }
+.carousel-track img.active { opacity: 1; }
+.carousel-prev, .carousel-next {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 38px; height: 38px;
+  background: rgba(255,255,255,0.9);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; color: var(--text); z-index: 2;
+  transition: all 0.2s;
+}
+.carousel-prev { left: 14px; }
+.carousel-next { right: 14px; }
+.carousel-prev:hover, .carousel-next:hover { background: #fff; transform: translateY(-50%) scale(1.05); }
+.carousel-dots { position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); display: flex; gap: 6px; z-index: 2; }
+.carousel-dots button { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,0.5); transition: all 0.2s; }
+.carousel-dots button.active { background: #fff; width: 20px; border-radius: 4px; }
+.about-content h2 { margin-bottom: 18px; }
+.about-content h2 .accent { display: block; }
+.about-content p { font-size: 0.98rem; color: var(--text-light); margin-bottom: 16px; }
+.about-content .btn { margin-top: 8px; }
+
+/* INFO BAR */
+.info-bar { background: var(--bg-alt); padding: 36px 0; }
+.info-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.info-item { display: flex; align-items: center; gap: 14px; }
+.info-icon { width: 44px; height: 44px; flex-shrink: 0; border-radius: 50%; background: #fff; color: var(--primary); display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-sm); }
+.info-icon svg { width: 22px; height: 22px; }
+.info-text { display: flex; flex-direction: column; min-width: 0; }
+.info-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-light); margin-bottom: 2px; }
+.info-value { font-family: var(--font-h); font-size: 1.05rem; font-weight: 700; }
+
+/* VALUES - 3x2 compact */
+.values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.value-card { background: #fff; padding: 28px 24px; border-radius: 12px; border: 1px solid var(--border); transition: all 0.3s; }
+.value-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: transparent; }
+.value-icon { width: 48px; height: 48px; border-radius: 50%; background: rgba(0,112,125,0.08); color: var(--primary); display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+.value-icon svg { width: 24px; height: 24px; }
+.value-card h3 { margin-bottom: 8px; font-size: 1.05rem; }
+.value-card p { color: var(--text-light); font-size: 0.88rem; line-height: 1.5; }
+
+/* APARTMENTS - with floor plans */
+.apartments { background: var(--bg-alt); }
+.apt-filters { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin-bottom: 32px; }
+.filter-btn { padding: 9px 18px; background: #fff; border: 1px solid var(--border); border-radius: 999px; font-size: 13px; font-weight: 500; transition: all 0.2s; color: var(--text); }
+.filter-btn:hover { border-color: var(--primary); color: var(--primary); }
+.filter-btn.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+.apt-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
+.apt-card { background: #fff; border-radius: 12px; padding: 0; border: 1px solid var(--border); transition: all 0.3s; display: flex; flex-direction: column; overflow: hidden; }
+.apt-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--primary); }
+.apt-plan { width: 100%; height: 180px; background: #f7f8f8; display: flex; align-items: center; justify-content: center; padding: 8px; border-bottom: 1px solid var(--border); }
+.apt-plan img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.apt-body { padding: 20px 22px 22px; display: flex; flex-direction: column; flex: 1; }
+.apt-card-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+.apt-id { font-family: var(--font-h); font-size: 1.4rem; font-weight: 700; color: var(--text); }
+.apt-floor { font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-light); background: var(--bg-alt); padding: 5px 10px; border-radius: 999px; }
+.apt-area { font-family: var(--font-h); font-size: 1.7rem; font-weight: 700; color: var(--primary); margin-bottom: 2px; }
+.apt-area span { font-size: 0.85rem; color: var(--text-light); margin-left: 4px; }
+.apt-rooms { font-size: 12px; color: var(--text-light); margin-bottom: 12px; }
+.apt-features { list-style: none; font-size: 12px; color: var(--text-light); margin-bottom: 18px; }
+.apt-features li { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px dashed var(--border); }
+.apt-features li:last-child { border-bottom: 0; }
+.apt-features strong { color: var(--text); font-weight: 600; }
+.apt-badge { display: inline-block; font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--primary); background: rgba(0,112,125,0.08); padding: 3px 8px; border-radius: 999px; margin-bottom: 8px; align-self: flex-start; }
+.apt-card .btn { margin-top: auto; }
+.apt-note { text-align: center; margin-top: 28px; color: var(--text-light); font-size: 0.9rem; font-style: italic; }
+
+/* LOCATION */
+.location-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 36px; align-items: stretch; }
+.location-points { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.poi { background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 18px; transition: all 0.2s; }
+.poi:hover { border-color: var(--primary); box-shadow: var(--shadow-sm); }
+.poi-num { font-family: var(--font-h); font-size: 1.25rem; font-weight: 700; color: var(--primary); margin-bottom: 4px; }
+.poi-info h4 { font-size: 0.95rem; margin-bottom: 2px; }
+.poi-info p { font-size: 12px; color: var(--text-light); }
+.location-map { border-radius: 12px; overflow: hidden; box-shadow: var(--shadow-md); min-height: 380px; }
+.location-map iframe { border: 0; display: block; width: 100%; height: 100%; }
+
+/* SERVICES */
+.services { background: var(--bg-alt); }
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.service-card { background: #fff; padding: 32px 26px; border-radius: 12px; text-align: center; border: 1px solid var(--border); transition: all 0.3s; }
+.service-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--primary); }
+.service-icon { width: 56px; height: 56px; margin: 0 auto 16px; background: var(--primary); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+.service-icon svg { width: 28px; height: 28px; }
+.service-card h3 { margin-bottom: 10px; font-size: 1.1rem; }
+.service-card p { color: var(--text-light); margin-bottom: 16px; font-size: 0.9rem; }
+.service-link { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--primary); }
+.service-link:hover { color: var(--primary-dark); }
+
+/* GALLERY - more compact rows */
+.gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 180px; gap: 12px; }
+.gallery-item { border-radius: 8px; overflow: hidden; position: relative; cursor: pointer; background: #f0f0f0; }
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+.gallery-item:hover img { transform: scale(1.06); }
+.gallery-large { grid-column: span 2; grid-row: span 2; }
+
+/* CONTACT */
+.contact { background: var(--bg-dark); color: #fff; }
+.contact .accent { color: var(--primary-light); }
+.contact .section-eyebrow { color: var(--primary-light); }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+.contact-info h2 { margin-bottom: 18px; }
+.contact-info > p { color: rgba(255,255,255,0.75); margin-bottom: 28px; font-size: 0.95rem; }
+.contact-details { display: flex; flex-direction: column; gap: 18px; }
+.contact-item { display: flex; align-items: center; gap: 16px; }
+.contact-icon { width: 40px; height: 40px; flex-shrink: 0; border-radius: 50%; background: rgba(255,255,255,0.08); color: var(--primary-light); display: flex; align-items: center; justify-content: center; }
+.contact-icon svg { width: 20px; height: 20px; }
+.contact-label { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.5); margin-bottom: 2px; }
+.contact-value { color: #fff; font-size: 0.98rem; font-weight: 500; }
+a.contact-value:hover { color: var(--primary-light); }
+.contact-form-wrap { background: rgba(255,255,255,0.04); padding: 32px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); }
+.form-toggle { display: flex; background: rgba(255,255,255,0.06); border-radius: 6px; padding: 3px; margin-bottom: 22px; gap: 3px; }
+.toggle-btn { flex: 1; padding: 9px 14px; font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; border-radius: 4px; color: rgba(255,255,255,0.7); transition: all 0.2s; }
+.toggle-btn:hover { color: #fff; }
+.toggle-btn.active { background: var(--primary); color: #fff; }
+.form-row { margin-bottom: 16px; }
+.form-row label { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.6); margin-bottom: 6px; }
+.form-row input, .form-row textarea { width: 100%; padding: 12px 16px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; color: #fff; font-family: inherit; font-size: 14px; transition: all 0.2s; }
+.form-row input:focus, .form-row textarea:focus { outline: 0; border-color: var(--primary-light); background: rgba(255,255,255,0.1); }
+.form-row textarea { resize: vertical; min-height: 90px; }
+.form-status { margin-top: 14px; font-size: 13px; min-height: 18px; }
+.form-status.success { color: #6FCE9D; }
+.form-status.error { color: #FF8C8C; }
+
+/* FOOTER */
+.site-footer { background: #0F1318; color: rgba(255,255,255,0.8); padding: 56px 0 24px; }
+.footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.2fr; gap: 36px; margin-bottom: 40px; }
+.footer-logo { display: flex; flex-direction: column; margin-bottom: 12px; line-height: 1; }
+.footer-logo .logo-text { font-family: var(--font-h); font-size: 24px; font-weight: 700; letter-spacing: 0.08em; color: #fff; }
+.footer-logo .logo-sub { font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--primary-light); margin-top: 2px; }
+.footer-tagline { font-size: 0.88rem; color: rgba(255,255,255,0.6); max-width: 300px; }
+.footer-col h4 { color: #fff; margin-bottom: 16px; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; font-family: var(--font-b); font-weight: 600; }
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-col a { color: rgba(255,255,255,0.65); font-size: 13px; transition: color 0.2s; }
+.footer-col a:hover { color: var(--primary-light); }
+.footer-legal li { font-size: 12px; color: rgba(255,255,255,0.5); font-family: 'Courier New', monospace; }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px; text-align: center; font-size: 12px; color: rgba(255,255,255,0.4); }
+
+/* STICKY CTA */
+.sticky-cta { position: fixed; bottom: 0; left: 0; right: 0; z-index: 90; display: flex; background: var(--bg-dark); border-top: 1px solid rgba(255,255,255,0.08); padding: 10px 16px; justify-content: center; box-shadow: 0 -8px 32px rgba(0,0,0,0.15); }
+.btn-sticky { padding: 10px 20px; font-size: 12px; margin: 0 5px; }
+
+/* COOKIE BANNER */
+.cookie-banner { position: fixed; bottom: 70px; left: 16px; right: 16px; z-index: 1000; max-width: 460px; background: #fff; border-radius: 12px; padding: 20px; box-shadow: var(--shadow-lg); border: 1px solid var(--border); }
+.cookie-banner[hidden] { display: none; }
+.cookie-content p { font-size: 13px; margin-bottom: 14px; color: var(--text-light); }
+.cookie-buttons { display: flex; gap: 8px; }
+
+/* RESPONSIVE - much more compact mobile */
+@media (max-width: 1024px) {
+  .main-nav { display: none; }
+  .menu-toggle { display: flex; }
+  .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 36px; }
+  .location-grid { grid-template-columns: 1fr; gap: 28px; }
+  .location-map { min-height: 320px; }
+  .stats-grid, .info-grid { grid-template-columns: repeat(2, 1fr); gap: 28px; }
+  .values-grid, .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .gallery-grid { grid-template-columns: repeat(3, 1fr); grid-auto-rows: 160px; }
+}
+
+@media (max-width: 720px) {
+  body { font-size: 14px; padding-bottom: 64px; }
+  section { padding: 44px 0; }
+  .container { padding: 0 18px; }
+
+  h1 { font-size: 1.85rem; }
+  h2 { font-size: 1.45rem; }
+  h3 { font-size: 1rem; }
+
+  .site-header { height: 60px; }
+  .logo-text { font-size: 20px; }
+  .logo-sub { font-size: 9px; letter-spacing: 0.28em; }
+  .lang-switcher { padding: 2px; }
+  .lang-btn { padding: 4px 7px; font-size: 10px; }
+  .mobile-menu { top: 60px; }
+  .mobile-menu nav a { padding: 12px 0; font-size: 13px; }
+
+  .hero { min-height: 70vh; padding-top: 60px; }
+  .hero-content { padding: 24px 0; }
+  .hero-eyebrow { font-size: 11px; margin-bottom: 12px; }
+  .hero h1 { font-size: 1.95rem; margin-bottom: 14px; }
+  .hero-lead { font-size: 0.92rem; margin-bottom: 22px; }
+  .hero-actions { flex-direction: column; align-items: stretch; gap: 10px; }
+  .hero-actions .btn { justify-content: center; padding: 12px 24px; font-size: 13px; }
+
+  .stats-bar { padding: 32px 0; }
+  .stats-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+  .stat-icon { width: 32px; height: 32px; margin-bottom: 8px; }
+  .stat-num { font-size: 1.35rem; }
+  .stat-label { font-size: 10px; }
+
+  .section-head { margin-bottom: 28px; }
+  .section-eyebrow { font-size: 10px; margin-bottom: 8px; }
+  .section-head h2 { margin-bottom: 12px; }
+  .section-lead { font-size: 0.9rem; }
+
+  .info-bar { padding: 28px 0; }
+  .info-grid { grid-template-columns: 1fr 1fr; gap: 18px; }
+  .info-icon { width: 38px; height: 38px; }
+  .info-icon svg { width: 18px; height: 18px; }
+  .info-label { font-size: 9px; }
+  .info-value { font-size: 0.85rem; }
+
+  .values-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .value-card { padding: 20px 16px; }
+  .value-icon { width: 38px; height: 38px; margin-bottom: 12px; }
+  .value-icon svg { width: 20px; height: 20px; }
+  .value-card h3 { font-size: 0.92rem; margin-bottom: 6px; }
+  .value-card p { font-size: 0.78rem; }
+
+  .apt-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .apt-card { border-radius: 10px; }
+  .apt-plan { height: 130px; padding: 6px; }
+  .apt-body { padding: 14px 14px 16px; }
+  .apt-id { font-size: 1.1rem; }
+  .apt-floor { font-size: 9px; padding: 4px 7px; }
+  .apt-area { font-size: 1.3rem; }
+  .apt-area span { font-size: 0.75rem; }
+  .apt-rooms { font-size: 11px; margin-bottom: 8px; }
+  .apt-features { font-size: 11px; margin-bottom: 12px; }
+  .apt-features li { padding: 4px 0; }
+  .apt-card .btn { padding: 8px 14px; font-size: 11px; }
+  .apt-badge { font-size: 9px; padding: 2px 6px; margin-bottom: 6px; }
+  .filter-btn { padding: 7px 13px; font-size: 11px; }
+
+  .location-points { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .poi { padding: 14px; }
+  .poi-num { font-size: 1.05rem; }
+  .poi-info h4 { font-size: 0.85rem; }
+  .poi-info p { font-size: 11px; }
+  .location-map { min-height: 280px; }
+
+  .services-grid { grid-template-columns: 1fr; gap: 14px; }
+  .service-card { padding: 24px 20px; }
+  .service-icon { width: 44px; height: 44px; margin-bottom: 12px; }
+
+  .gallery-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 130px; gap: 8px; }
+  .gallery-large { grid-column: span 2; grid-row: span 1; }
+
+  .contact-form-wrap { padding: 22px 18px; }
+  .form-toggle { gap: 2px; }
+  .toggle-btn { font-size: 10px; padding: 8px 6px; }
+  .form-row { margin-bottom: 14px; }
+  .form-row label { font-size: 10px; }
+  .form-row input, .form-row textarea { padding: 10px 14px; font-size: 13px; }
+  .form-row textarea { min-height: 70px; }
+
+  .footer-grid { grid-template-columns: 1fr; gap: 28px; margin-bottom: 32px; }
+  .site-footer { padding: 44px 0 20px; }
+
+  .sticky-cta { padding: 8px 12px; }
+  .btn-sticky { padding: 8px 14px; font-size: 10px; margin: 0 3px; }
+  .btn-sticky svg { width: 14px; height: 14px; }
+}
+
+@media (max-width: 480px) {
+  .header-inner { gap: 10px; }
+  .logo-text { font-size: 18px; }
+  .stats-grid { gap: 18px; }
+  .gallery-grid { grid-auto-rows: 110px; }
+}
+</style>
+</head>
+<body>
+
+<div id="cookie-banner" class="cookie-banner" hidden>
+  <div class="cookie-content">
+    <p>Ova web stranica koristi kolačiće za poboljšanje korisničkog iskustva.</p>
+    <div class="cookie-buttons">
+      <button id="cookie-accept" class="btn btn-primary btn-sm">Prihvaćam</button>
+      <button id="cookie-decline" class="btn btn-outline btn-sm">Odbijam</button>
+    </div>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="./" class="logo">
+      <span class="logo-text">FRONT</span>
+      <span class="logo-sub">development</span>
+    </a>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="#about">O projektu</a></li>
+        <li><a href="#apartments">Stanovi</a></li>
+        <li><a href="#location">Lokacija</a></li>
+        <li><a href="#gallery">Galerija</a></li>
+        <li><a href="#contact">Kontakt</a></li>
+      </ul>
+    </nav>
+    <div class="header-right">
+      <div class="lang-switcher">
+        <a href="./" class="lang-btn active">HR</a>
+        <a href="en/" class="lang-btn">EN</a>
+        <a href="ua/" class="lang-btn">UA</a>
+      </div>
+      <button class="menu-toggle" aria-label="Izbornik"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobile-menu" hidden>
+  <nav>
+    <ul>
+      <li><a href="#about">O projektu</a></li>
+      <li><a href="#apartments">Stanovi</a></li>
+      <li><a href="#location">Lokacija</a></li>
+      <li><a href="#gallery">Galerija</a></li>
+      <li><a href="#contact">Kontakt</a></li>
+    </ul>
+  </nav>
+</div>
+
+<main>
+
+<section class="hero">
+  <div class="hero-bg"><img src="exterior-front.jpg" alt="Front Development Horvatova"></div>
+  <div class="hero-overlay"></div>
+  <div class="container hero-content">
+    <p class="hero-eyebrow">Nova stambena zgrada u Zagrebu</p>
+    <h1>Prostor stvoren <br><span class="accent">za život</span></h1>
+    <p class="hero-lead">Moderan stambeni kompleks za siguran, udoban i uravnotežen život u mirnom dijelu naselja Klara.</p>
+    <div class="hero-actions">
+      <a href="#apartments" class="btn btn-primary">Pogledaj ponudu</a>
+      <a href="#contact" class="btn btn-outline-light">Pošalji upit</a>
+    </div>
+  </div>
+</section>
+
+<section class="stats-bar">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat">
+        <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21V8l9-5 9 5v13M9 21v-6h6v6"/></svg></div>
+        <div class="stat-num">5 etaža</div>
+        <div class="stat-label">1 podzemna + 4 nadzemne</div>
+      </div>
+      <div class="stat">
+        <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg></div>
+        <div class="stat-num">19</div>
+        <div class="stat-label">Stanova</div>
+      </div>
+      <div class="stat">
+        <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 16V8h3.5a2.5 2.5 0 010 5H9"/></svg></div>
+        <div class="stat-num">21</div>
+        <div class="stat-label">Parkirnih mjesta</div>
+      </div>
+      <div class="stat">
+        <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+        <div class="stat-num">46–109 m²</div>
+        <div class="stat-label">Površine stanova</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <div class="carousel" data-carousel>
+          <div class="carousel-track">
+            <img src="exterior-front.jpg" alt="Glavno pročelje" class="active">
+            <img src="exterior-side.jpg" alt="Bočni pogled">
+            <img src="exterior-terraces.jpg" alt="Krovne terase">
+            <img src="exterior-corner.jpg" alt="Ugaoni pogled">
+            <img src="exterior-detail.jpg" alt="Detalj zgrade">
+            <img src="balcony-closeup.jpg" alt="Detalj balkona">
+          </div>
+          <button class="carousel-prev" aria-label="Prethodna">‹</button>
+          <button class="carousel-next" aria-label="Sljedeća">›</button>
+          <div class="carousel-dots"></div>
+        </div>
+      </div>
+      <div class="about-content">
+        <p class="section-eyebrow">O projektu</p>
+        <h2><span class="accent">Prostor za</span><br>kvalitetan život</h2>
+        <p>Pažljivo osmišljena stambena zgrada koja spaja suvremenu arhitekturu, funkcionalne tlocrte i visoku razinu udobnosti. Različiti tipovi stanova prilagođeni su različitim životnim stilovima.</p>
+        <p>Smještena u mirnom dijelu naselja Klara, nadomak javnog prijevoza, škola, trgovina i restorana. Podzemna garaža s grijanim kolnim pristupom i dva stana prilagođena osobama s invaliditetom u prizemlju.</p>
+        <a href="#apartments" class="btn btn-primary">Pogledaj stanove</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="info-bar">
+  <div class="container">
+    <div class="info-grid">
+      <div class="info-item">
+        <div class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+        <div class="info-text"><span class="info-label">Cijena</span><span class="info-value">na upit</span></div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+        <div class="info-text"><span class="info-label">Površina</span><span class="info-value">46 – 109 m²</span></div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 11h18"/></svg></div>
+        <div class="info-text"><span class="info-label">Kraj gradnje</span><span class="info-value">XX / 20XX</span></div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="10" r="3"/><path d="M12 21s-7-7-7-12a7 7 0 1114 0c0 5-7 12-7 12z"/></svg></div>
+        <div class="info-text"><span class="info-label">Lokacija</span><span class="info-value">Klara, Zagreb</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <p class="section-eyebrow">Naše vrijednosti</p>
+      <h2><span class="accent">Što nas</span> izdvaja</h2>
+    </div>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21V8l9-5 9 5v13M9 21v-6h6v6"/></svg></div>
+        <h3>Moderan prostor</h3>
+        <p>Funkcionalni stanovi za različite stilove života i svakodnevnu udobnost.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="10" r="2.5"/><path d="M3 20c0-3 3-5 6-5s6 2 6 5M14 20c0-2 2-3.5 4-3.5s4 1.5 4 3.5"/></svg></div>
+        <h3>Zajednica</h3>
+        <p>Vanjski prostori i dječje igralište za druženje i opuštanje.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="10" r="3"/><path d="M12 21s-7-7-7-12a7 7 0 1114 0c0 5-7 12-7 12z"/></svg></div>
+        <h3>Odlična lokacija</h3>
+        <p>Mirna lokacija s brzom povezanošću prema centru grada.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L4 7v10l8 5 8-5V7l-8-5z"/></svg></div>
+        <h3>Održivost</h3>
+        <p>Energetski učinkovita rješenja i kvalitetni materijali.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+        <h3>Suvremena arhitektura</h3>
+        <p>Čista forma, opeka i beton — kombinacija topline i karaktera.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+        <h3>Pristupačnost</h3>
+        <p>Dva stana prilagođena osobama s invaliditetom, dizalo i grijani prilaz.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="apartments" class="apartments">
+  <div class="container">
+    <div class="section-head">
+      <p class="section-eyebrow">Katalog stanova</p>
+      <h2><span class="accent">19 stanova</span> za vaš novi dom</h2>
+      <p class="section-lead">Podzemna garaža i četiri nadzemne etaže s 19 stanova različitih veličina i tipologija.</p>
+    </div>
+    <div class="apt-filters">
+      <button class="filter-btn active" data-filter="all">Svi stanovi</button>
+      <button class="filter-btn" data-filter="0">Prizemlje</button>
+      <button class="filter-btn" data-filter="1">1. kat</button>
+      <button class="filter-btn" data-filter="2">2. kat</button>
+      <button class="filter-btn" data-filter="3">3. kat</button>
+    </div>
+    <div class="apt-grid" id="apt-grid"></div>
+    <p class="apt-note">Sve cijene dostupne na upit.</p>
+  </div>
+</section>
+
+<section id="location">
+  <div class="container">
+    <div class="section-head">
+      <p class="section-eyebrow">Lokacija</p>
+      <h2><span class="accent">U srcu</span> naselja Klara</h2>
+      <p class="section-lead">Horvatova ulica, mirni dio Novog Zagreba s brzom povezanošću prema centru grada.</p>
+    </div>
+    <div class="location-grid">
+      <div class="location-points">
+        <div class="poi"><div class="poi-num">800 m</div><div class="poi-info"><h4>Lidl</h4><p>Supermarket</p></div></div>
+        <div class="poi"><div class="poi-num">2,8 km</div><div class="poi-info"><h4>Avenue Mall</h4><p>Trgovački centar</p></div></div>
+        <div class="poi"><div class="poi-num">3 km</div><div class="poi-info"><h4>Park Bundek</h4><p>Park i jezero</p></div></div>
+        <div class="poi"><div class="poi-num">3,5 km</div><div class="poi-info"><h4>Arena Zagreb</h4><p>Dvorana</p></div></div>
+        <div class="poi"><div class="poi-num">5 min</div><div class="poi-info"><h4>Javni prijevoz</h4><p>Tramvaj i autobus</p></div></div>
+        <div class="poi"><div class="poi-num">10 min</div><div class="poi-info"><h4>Centar Zagreba</h4><p>Automobilom</p></div></div>
+      </div>
+      <div class="location-map">
+        <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=15.95%2C45.74%2C16.0%2C45.78&amp;layer=mapnik&amp;marker=45.763233%2C15.977296" loading="lazy" title="Karta lokacije"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services" class="services">
+  <div class="container">
+    <div class="section-head">
+      <p class="section-eyebrow">Naše usluge</p>
+      <h2><span class="accent">Uz vas</span> na svakom koraku</h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 8h20M6 14h4"/></svg></div>
+        <h3>Online konzultacije</h3>
+        <p>Razgovor s našim timom putem video poziva — bez napuštanja doma.</p>
+        <a href="#contact" class="service-link" data-purpose="call">Naručite poziv →</a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z"/></svg></div>
+        <h3>Posjet objektu</h3>
+        <p>Dogovorite obilazak gradilišta i upoznajte buduću zgradu uživo.</p>
+        <a href="#contact" class="service-link" data-purpose="visit">Dođite u posjet →</a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg></div>
+        <h3>Personalizirana ponuda</h3>
+        <p>Pošaljite upit i pripremit ćemo detaljnu ponudu za vas.</p>
+        <a href="#contact" class="service-link">Pošalji upit →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="container">
+    <div class="section-head">
+      <p class="section-eyebrow">Galerija</p>
+      <h2><span class="accent">Pogledajte</span> kako će izgledati</h2>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item gallery-large"><img src="exterior-front.jpg" alt="Glavno pročelje" loading="lazy"></div>
+      <div class="gallery-item"><img src="garden-playground.jpg" alt="Vrt s igralištem" loading="lazy"></div>
+      <div class="gallery-item"><img src="exterior-corner.jpg" alt="Ugaoni pogled" loading="lazy"></div>
+      <div class="gallery-item"><img src="balcony-closeup.jpg" alt="Detalj balkona" loading="lazy"></div>
+      <div class="gallery-item"><img src="exterior-terraces.jpg" alt="Krovne terase" loading="lazy"></div>
+      <div class="gallery-item"><img src="exterior-detail.jpg" alt="Detalj zgrade" loading="lazy"></div>
+      <div class="gallery-item"><img src="interior-living.jpg" alt="Dnevni boravak" loading="lazy"></div>
+      <div class="gallery-item"><img src="interior-bedroom.jpg" alt="Spavaća soba" loading="lazy"></div>
+      <div class="gallery-item"><img src="interior-bathroom1.jpg" alt="Kupaonica 1" loading="lazy"></div>
+      <div class="gallery-item"><img src="interior-bathroom2.jpg" alt="Kupaonica 2" loading="lazy"></div>
+      <div class="gallery-item"><img src="interior-lobby.jpg" alt="Ulazni prostor" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <p class="section-eyebrow">Kontaktirajte nas</p>
+        <h2><span class="accent">Pošaljite</span> upit</h2>
+        <p>Imate pitanje, želite zakazati posjet ili tražite personaliziranu ponudu? Javite nam se.</p>
+        <div class="contact-details">
+          <div class="contact-item">
+            <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+            <div><span class="contact-label">Telefon</span><a href="tel:+385916163152" class="contact-value">+385 91 616 3152</a></div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6L12 13 2 6"/></svg></div>
+            <div><span class="contact-label">Email</span><a href="mailto:info@front.hr" class="contact-value">info@front.hr</a></div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="10" r="3"/><path d="M12 21s-7-7-7-12a7 7 0 1114 0c0 5-7 12-7 12z"/></svg></div>
+            <div><span class="contact-label">Adresa</span><span class="contact-value">Horvatova ulica, Zagreb</span></div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+            <div><span class="contact-label">Radno vrijeme</span><span class="contact-value">Pon – Sub: 08:00 – 18:00</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form-wrap">
+        <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="b25101bd-66c7-484b-921a-34010b1ccdf5">
+          <input type="hidden" name="subject" value="Novi upit s Front Development sajta">
+          <input type="hidden" name="from_name" value="Front Development website">
+          <input type="checkbox" name="botcheck" style="display:none">
+          <div class="form-toggle">
+            <button type="button" class="toggle-btn active" data-purpose="info">Informacije</button>
+            <button type="button" class="toggle-btn" data-purpose="visit">Posjet</button>
+            <button type="button" class="toggle-btn" data-purpose="call">Poziv</button>
+          </div>
+          <input type="hidden" name="purpose" id="form-purpose" value="info">
+          <div class="form-row"><label for="name">Ime i prezime *</label><input type="text" id="name" name="name" required></div>
+          <div class="form-row"><label for="phone">Broj telefona *</label><input type="tel" id="phone" name="phone" required></div>
+          <div class="form-row"><label for="email">Email</label><input type="email" id="email" name="email"></div>
+          <div class="form-row"><label for="message">Vaša poruka</label><textarea id="message" name="message" rows="3"></textarea></div>
+          <button type="submit" class="btn btn-primary btn-block">Pošalji poruku</button>
+          <div class="form-status" id="form-status"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <div class="footer-logo">
+        <span class="logo-text">FRONT</span>
+        <span class="logo-sub">development</span>
+      </div>
+      <p class="footer-tagline">Moderan stambeni kompleks za siguran, udoban i uravnotežen život.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigacija</h4>
+      <ul>
+        <li><a href="#about">O projektu</a></li>
+        <li><a href="#apartments">Stanovi</a></li>
+        <li><a href="#location">Lokacija</a></li>
+        <li><a href="#gallery">Galerija</a></li>
+        <li><a href="#contact">Kontakt</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Kontakt</h4>
+      <ul>
+        <li><a href="tel:+385916163152">+385 91 616 3152</a></li>
+        <li><a href="mailto:info@front.hr">info@front.hr</a></li>
+        <li>Horvatova ulica, Zagreb</li>
+        <li>Pon – Sub: 08:00 – 18:00</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Front Development d.o.o.</h4>
+      <ul class="footer-legal">
+        <li>OIB: XXXXXXXXXXX</li>
+        <li>MBS: XXXXXXXX</li>
+        <li>IBAN: HRXX XXXX XXXX XXXX X</li>
+      </ul>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>© 2026 Front Development d.o.o. — Sva prava pridržana.</p>
+  </div>
+</footer>
+
+<div class="sticky-cta">
+  <a href="#contact" class="btn btn-primary btn-sticky" data-purpose="visit">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><circle cx="12" cy="12" r="3"/><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z"/></svg>
+    Dođite u posjet
+  </a>
+  <a href="#contact" class="btn btn-primary btn-sticky" data-purpose="call">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg>
+    Naručite poziv
+  </a>
+</div>
+
+<script>
+var APARTMENTS = [
+  {id:"S0.1", floor:0, floorLabel:"Prizemlje", area:53.63, rooms:1, outdoor:7.24, outdoorType:"Terasa", accessible:true, plan:"plan-S0-1.jpg"},
+  {id:"S0.2", floor:0, floorLabel:"Prizemlje", area:74.30, rooms:2, outdoor:2.46, outdoorType:"Predvrt", plan:"plan-S0-2.jpg"},
+  {id:"S0.3", floor:0, floorLabel:"Prizemlje", area:51.52, rooms:1, outdoor:1.86, outdoorType:"Predvrt", accessible:true, plan:"plan-S0-3.jpg"},
+  {id:"S0.4", floor:0, floorLabel:"Prizemlje", area:64.47, rooms:2, outdoor:1.86, outdoorType:"Predvrt", plan:"plan-S0-4.jpg"},
+  {id:"S0.5", floor:0, floorLabel:"Prizemlje", area:94.85, rooms:2, outdoor:12.31, outdoorType:"Terasa", plan:"plan-S0-5.jpg"},
+  {id:"S1.1", floor:1, floorLabel:"1. kat", area:50.53, rooms:1, outdoor:3.76, outdoorType:"Balkon", plan:"plan-S1-1.jpg"},
+  {id:"S1.2", floor:1, floorLabel:"1. kat", area:60.81, rooms:1, outdoor:5.12, outdoorType:"Balkon", plan:"plan-S1-2.jpg"},
+  {id:"S1.3", floor:1, floorLabel:"1. kat", area:83.56, rooms:2, outdoor:5.47, outdoorType:"Balkon", plan:"plan-S1-3.jpg"},
+  {id:"S1.4", floor:1, floorLabel:"1. kat", area:69.24, rooms:2, outdoor:10.46, outdoorType:"Balkoni", plan:"plan-S1-4.jpg"},
+  {id:"S1.5", floor:1, floorLabel:"1. kat", area:45.91, rooms:1, outdoor:4.99, outdoorType:"Balkon", plan:"plan-S1-5.jpg"},
+  {id:"S1.6", floor:1, floorLabel:"1. kat", area:46.46, rooms:1, outdoor:5.94, outdoorType:"Balkon", plan:"plan-S1-6.jpg"},
+  {id:"S2.1", floor:2, floorLabel:"2. kat", area:49.47, rooms:1, outdoor:2.70, outdoorType:"Balkon", plan:"plan-S2-1.jpg"},
+  {id:"S2.2", floor:2, floorLabel:"2. kat", area:59.53, rooms:1, outdoor:3.70, outdoorType:"Balkon", plan:"plan-S2-2.jpg"},
+  {id:"S2.3", floor:2, floorLabel:"2. kat", area:82.12, rooms:2, outdoor:4.45, outdoorType:"Balkon", plan:"plan-S2-3.jpg"},
+  {id:"S2.4", floor:2, floorLabel:"2. kat", area:109.07, rooms:3, outdoor:9.38, outdoorType:"Balkoni", plan:"plan-S2-4.jpg"},
+  {id:"S2.5", floor:2, floorLabel:"2. kat", area:46.46, rooms:1, outdoor:5.94, outdoorType:"Balkon", plan:"plan-S2-5.jpg"},
+  {id:"S3.1", floor:3, floorLabel:"3. kat", area:84.41, rooms:2, outdoor:6.24, outdoorType:"Terase", plan:"plan-S3-1.jpg"},
+  {id:"S3.2", floor:3, floorLabel:"3. kat", area:94.78, rooms:2, outdoor:16.12, outdoorType:"Terasa + balkon", plan:"plan-S3-2.jpg"},
+  {id:"S3.3", floor:3, floorLabel:"3. kat", area:95.94, rooms:2, outdoor:8.97, outdoorType:"Terasa + balkon", plan:"plan-S3-3.jpg"}
+];
+
+var I18N = {
+  rooms: {1: "1 spavaća soba", 2: "2 spavaće sobe", 3: "3 spavaće sobe"},
+  area: "Površina",
+  accessible: "Pristupačno",
+  inquireBtn: "Upit za stan",
+  formSuccess: "Hvala! Vaša poruka je poslana.",
+  formError: "Došlo je do greške. Molimo pokušajte ponovno."
+};
+
+var IMG_PREFIX = "";
+
+(function() {
+  var menuToggle = document.querySelector('.menu-toggle');
+  var mobileMenu = document.getElementById('mobile-menu');
+  if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener('click', function() {
+      var isOpen = !mobileMenu.hasAttribute('hidden');
+      if (isOpen) { mobileMenu.setAttribute('hidden', ''); menuToggle.classList.remove('active'); }
+      else { mobileMenu.removeAttribute('hidden'); menuToggle.classList.add('active'); }
+    });
+    var mobileLinks = mobileMenu.querySelectorAll('a');
+    for (var i = 0; i < mobileLinks.length; i++) {
+      mobileLinks[i].addEventListener('click', function() {
+        mobileMenu.setAttribute('hidden', ''); menuToggle.classList.remove('active');
+      });
+    }
+  }
+
+  var carousels = document.querySelectorAll('[data-carousel]');
+  for (var c = 0; c < carousels.length; c++) {
+    (function(carousel) {
+      var slides = carousel.querySelectorAll('.carousel-track img');
+      var prevBtn = carousel.querySelector('.carousel-prev');
+      var nextBtn = carousel.querySelector('.carousel-next');
+      var dotsContainer = carousel.querySelector('.carousel-dots');
+      var current = 0, interval, dots = [];
+      for (var i = 0; i < slides.length; i++) {
+        (function(idx) {
+          var dot = document.createElement('button');
+          if (idx === 0) dot.classList.add('active');
+          dot.addEventListener('click', function() { goTo(idx); restart(); });
+          dotsContainer.appendChild(dot);
+          dots.push(dot);
+        })(i);
+      }
+      function goTo(i) {
+        slides[current].classList.remove('active');
+        dots[current].classList.remove('active');
+        current = (i + slides.length) % slides.length;
+        slides[current].classList.add('active');
+        dots[current].classList.add('active');
+      }
+      function next() { goTo(current + 1); }
+      function prev() { goTo(current - 1); }
+      function start() { interval = setInterval(next, 5000); }
+      function restart() { clearInterval(interval); start(); }
+      nextBtn.addEventListener('click', function() { next(); restart(); });
+      prevBtn.addEventListener('click', function() { prev(); restart(); });
+      carousel.addEventListener('mouseenter', function() { clearInterval(interval); });
+      carousel.addEventListener('mouseleave', start);
+      start();
+    })(carousels[c]);
+  }
+
+  var aptGrid = document.getElementById('apt-grid');
+  var filterBtns = document.querySelectorAll('.filter-btn');
+
+  function renderApartments(filter) {
+    if (!aptGrid) return;
+    var data = filter === 'all' ? APARTMENTS : APARTMENTS.filter(function(a) { return String(a.floor) === String(filter); });
+    var html = '';
+    for (var i = 0; i < data.length; i++) {
+      var apt = data[i];
+      var roomLabel = I18N.rooms[apt.rooms] || (apt.rooms + ' soba');
+      html += '<div class="apt-card">';
+      html += '<div class="apt-plan"><img src="' + IMG_PREFIX + apt.plan + '" alt="Tlocrt ' + apt.id + '" loading="lazy"></div>';
+      html += '<div class="apt-body">';
+      html += '<div class="apt-card-head"><div class="apt-id">' + apt.id + '</div><div class="apt-floor">' + apt.floorLabel + '</div></div>';
+      if (apt.accessible) html += '<span class="apt-badge">♿ ' + I18N.accessible + '</span>';
+      html += '<div class="apt-area">' + apt.area.toFixed(2).replace('.', ',') + '<span>m²</span></div>';
+      html += '<div class="apt-rooms">' + roomLabel + '</div>';
+      html += '<ul class="apt-features">';
+      html += '<li>' + I18N.area + ' <strong>' + apt.area.toFixed(2).replace('.', ',') + ' m²</strong></li>';
+      html += '<li>' + apt.outdoorType + ' <strong>' + apt.outdoor.toFixed(2).replace('.', ',') + ' m²</strong></li>';
+      html += '</ul>';
+      html += '<a href="#contact" class="btn btn-outline btn-sm" data-apt="' + apt.id + '">' + I18N.inquireBtn + '</a>';
+      html += '</div></div>';
+    }
+    aptGrid.innerHTML = html;
+    var aptLinks = aptGrid.querySelectorAll('[data-apt]');
+    for (var j = 0; j < aptLinks.length; j++) {
+      aptLinks[j].addEventListener('click', function(e) {
+        var aptId = this.getAttribute('data-apt');
+        var msg = document.getElementById('message');
+        if (msg && msg.value.indexOf(aptId) === -1) {
+          msg.value = I18N.inquireBtn + ' ' + aptId + (msg.value ? '\n\n' + msg.value : '');
+        }
+      });
+    }
+  }
+
+  for (var f = 0; f < filterBtns.length; f++) {
+    filterBtns[f].addEventListener('click', function() {
+      for (var k = 0; k < filterBtns.length; k++) filterBtns[k].classList.remove('active');
+      this.classList.add('active');
+      renderApartments(this.getAttribute('data-filter'));
+    });
+  }
+  renderApartments('all');
+
+  var toggleBtns = document.querySelectorAll('.toggle-btn');
+  var purposeInput = document.getElementById('form-purpose');
+  for (var t = 0; t < toggleBtns.length; t++) {
+    toggleBtns[t].addEventListener('click', function() {
+      for (var k = 0; k < toggleBtns.length; k++) toggleBtns[k].classList.remove('active');
+      this.classList.add('active');
+      if (purposeInput) purposeInput.value = this.getAttribute('data-purpose');
+    });
+  }
+
+  var purposeLinks = document.querySelectorAll('a[data-purpose]');
+  for (var p = 0; p < purposeLinks.length; p++) {
+    purposeLinks[p].addEventListener('click', function() {
+      var purpose = this.getAttribute('data-purpose');
+      var targetBtn = document.querySelector('.toggle-btn[data-purpose="' + purpose + '"]');
+      if (targetBtn) targetBtn.click();
+    });
+  }
+
+  var form = document.getElementById('contact-form');
+  var status = document.getElementById('form-status');
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      status.textContent = '...';
+      status.className = 'form-status';
+      var formData = new FormData(form);
+      fetch(form.action, { method: 'POST', body: formData, headers: { 'Accept': 'application/json' } })
+        .then(function(res) {
+          if (res.ok) { status.textContent = I18N.formSuccess; status.className = 'form-status success'; form.reset(); }
+          else throw new Error('failed');
+        })
+        .catch(function() { status.textContent = I18N.formError; status.className = 'form-status error'; });
+    });
+  }
+
+  var anchors = document.querySelectorAll('a[href^="#"]');
+  for (var a = 0; a < anchors.length; a++) {
+    anchors[a].addEventListener('click', function(e) {
+      var href = this.getAttribute('href');
+      if (href === '#' || href.length < 2) return;
+      var target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        var top = target.getBoundingClientRect().top + window.pageYOffset - 68;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+      }
+    });
+  }
+
+  var cookieBanner = document.getElementById('cookie-banner');
+  if (cookieBanner && !localStorage.getItem('front_cookies')) {
+    setTimeout(function() { cookieBanner.removeAttribute('hidden'); }, 1500);
+  }
+  var cookieAccept = document.getElementById('cookie-accept');
+  if (cookieAccept) cookieAccept.addEventListener('click', function() {
+    localStorage.setItem('front_cookies', 'accepted');
+    cookieBanner.setAttribute('hidden', '');
+  });
+  var cookieDecline = document.getElementById('cookie-decline');
+  if (cookieDecline) cookieDecline.addEventListener('click', function() {
+    localStorage.setItem('front_cookies', 'declined');
+    cookieBanner.setAttribute('hidden', '');
+  });
+})();
+</script>
+
+</body>
+</html>
