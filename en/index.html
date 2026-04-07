@@ -29,7 +29,7 @@
 <link rel="apple-touch-icon" href="../favicon-192.png">
 
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"RealEstateAgent","name":"Front Development d.o.o.","url":"https://front.hr","image":"https://front.hr/exterior-front.jpg","description":"Front Development is building a modern residential building on Horvatova Street in Zagreb — 19 apartments, underground garage and contemporary architecture.","telephone":"+385916163152","email":"info@front.hr","address":{"@type":"PostalAddress","streetAddress":"Horvatova ulica","addressLocality":"Zagreb","postalCode":"10000","addressCountry":"HR"},"geo":{"@type":"GeoCoordinates","latitude":45.763233,"longitude":15.977296}}
+{"@context":"https://schema.org","@type":"RealEstateAgent","name":"Front Development d.o.o.","url":"https://front.hr","image":"https://front.hr/exterior-front.jpg","description":"Front Development is building a modern residential building on Horvatova Street in Zagreb — 19 apartments, underground garage and contemporary architecture.","telephone":"+385916163152","email":"info@front.hr","taxID":"HR08161898502","vatID":"HR08161898502","address":{"@type":"PostalAddress","streetAddress":"Horvatova ulica","addressLocality":"Zagreb","postalCode":"10000","addressCountry":"HR"},"geo":{"@type":"GeoCoordinates","latitude":45.763233,"longitude":15.977296}}
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -542,6 +542,51 @@ a.contact-value:hover { color: var(--primary-light); }
   .lightbox-counter { bottom: 12px; font-size: 12px; padding: 5px 12px; }
 }
 
+
+/* CONSENT CHECKBOX */
+.form-consent { margin: -4px 0 18px; }
+.checkbox-label { display: flex; align-items: flex-start; gap: 10px; cursor: pointer; font-size: 12px; color: rgba(255,255,255,0.7); line-height: 1.5; }
+.checkbox-label input[type="checkbox"] { margin-top: 2px; cursor: pointer; flex-shrink: 0; accent-color: var(--primary); width: 16px; height: 16px; }
+.checkbox-label a { color: var(--primary-light); text-decoration: underline; }
+.checkbox-label a:hover { color: #fff; }
+
+/* LEGAL SECTION */
+.legal { background: var(--bg-alt); }
+.legal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
+.legal-info-card { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 32px; }
+.legal-section-title { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--primary); margin: 24px 0 12px; font-family: var(--font-b); font-weight: 600; }
+.legal-section-title:first-of-type { margin-top: 0; }
+.legal-company-full { padding: 4px 0 14px; font-size: 13px; color: var(--text); font-weight: 500; border-bottom: 1px solid var(--border); margin-bottom: 4px; }
+.legal-row { display: flex; padding: 9px 0; border-bottom: 1px solid var(--border); font-size: 13px; gap: 14px; align-items: baseline; }
+.legal-row:last-child { border-bottom: 0; }
+.legal-row .legal-key { color: var(--text-light); flex-shrink: 0; min-width: 130px; }
+.legal-row .legal-val { color: var(--text); font-weight: 500; word-break: break-word; }
+.legal-row .legal-val a { color: var(--primary); }
+.legal-row .legal-val a:hover { color: var(--primary-dark); }
+
+.legal-accordion { display: flex; flex-direction: column; gap: 8px; }
+.legal-item { background: #fff; border: 1px solid var(--border); border-radius: 8px; transition: all 0.2s; }
+.legal-item:hover { border-color: var(--primary); }
+.legal-item[open] { border-color: var(--primary); }
+.legal-item summary { padding: 18px 22px; cursor: pointer; font-weight: 500; font-size: 14px; display: flex; justify-content: space-between; align-items: center; list-style: none; color: var(--text); gap: 12px; }
+.legal-item summary::-webkit-details-marker { display: none; }
+.legal-item summary::after { content: '+'; color: var(--primary); font-size: 22px; line-height: 1; flex-shrink: 0; transition: transform 0.2s; font-weight: 300; }
+.legal-item[open] summary::after { content: '−'; }
+.legal-content { padding: 0 22px 22px; font-size: 13px; line-height: 1.65; color: var(--text-light); }
+.legal-content p + p { margin-top: 10px; }
+.legal-content a { color: var(--primary); text-decoration: underline; }
+
+@media (max-width: 1024px) {
+  .legal-grid { grid-template-columns: 1fr; gap: 24px; }
+}
+@media (max-width: 720px) {
+  .legal-info-card { padding: 22px 18px; }
+  .legal-row { font-size: 12px; padding: 7px 0; gap: 10px; flex-direction: column; }
+  .legal-row .legal-key { min-width: 0; font-size: 10px; text-transform: uppercase; letter-spacing: 0.05em; }
+  .legal-item summary { padding: 14px 16px; font-size: 13px; }
+  .legal-content { padding: 0 16px 16px; font-size: 12px; }
+}
+
 </style>
 </head>
 <body>
@@ -572,6 +617,7 @@ a.contact-value:hover { color: var(--primary-light); }
         <li><a href="#location">Location</a></li>
         <li><a href="#gallery">Gallery</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li><a href="#legal">Legal</a></li>
       </ul>
     </nav>
     <div class="header-right">
@@ -593,6 +639,7 @@ a.contact-value:hover { color: var(--primary-light); }
       <li><a href="#location">Location</a></li>
       <li><a href="#gallery">Gallery</a></li>
       <li><a href="#contact">Contact</a></li>
+        <li><a href="#legal">Legal</a></li>
     </ul>
   </nav>
 </div>
@@ -868,9 +915,77 @@ a.contact-value:hover { color: var(--primary-light); }
           <div class="form-row"><label for="phone">Phone number *</label><input type="tel" id="phone" name="phone" required></div>
           <div class="form-row"><label for="email">Email</label><input type="email" id="email" name="email"></div>
           <div class="form-row"><label for="message">Your message</label><textarea id="message" name="message" rows="3"></textarea></div>
+          <div class="form-row form-consent">
+            <label class="checkbox-label">
+              <input type="checkbox" name="consent" required>
+              <span>I agree to the <a href="#legal">processing of my personal data</a> in accordance with GDPR.</span>
+            </label>
+          </div>
           <button type="submit" class="btn btn-primary btn-block">Send message</button>
           <div class="form-status" id="form-status"></div>
         </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="legal" class="legal">
+  <div class="container">
+    <div class="section-head">
+      <p class="section-eyebrow">Legal information</p>
+      <h2><span class="accent">Legal</span> information</h2>
+    </div>
+    <div class="legal-grid">
+      <div class="legal-info-card">
+        <h3 class="legal-section-title">Company information</h3>
+        <div class="legal-company-full">FRONT DEVELOPMENT društvo s ograničenom odgovornošću</div>
+        <div class="legal-row"><span class="legal-key">Short name:</span><span class="legal-val">FRONT DEVELOPMENT d.o.o.</span></div>
+        <div class="legal-row"><span class="legal-key">Registered office:</span><span class="legal-val">Horvatova ulica, Zagreb</span></div>
+        <div class="legal-row"><span class="legal-key">OIB:</span><span class="legal-val">08161898502</span></div>
+        <div class="legal-row"><span class="legal-key">MBS:</span><span class="legal-val">081563243</span></div>
+        <div class="legal-row"><span class="legal-key">Commercial court:</span><span class="legal-val">Commercial Court in Zagreb</span></div>
+
+        <h3 class="legal-section-title">Contact</h3>
+        <div class="legal-row"><span class="legal-key">E-mail:</span><span class="legal-val"><a href="mailto:sales@front.hr">sales@front.hr</a></span></div>
+        <div class="legal-row"><span class="legal-key">Phone:</span><span class="legal-val"><a href="tel:+385916163152">+385 91 616 3152</a></span></div>
+
+        <h3 class="legal-section-title">Bank account</h3>
+        <div class="legal-row"><span class="legal-key">IBAN:</span><span class="legal-val">—</span></div>
+        <div class="legal-row"><span class="legal-key">Bank name:</span><span class="legal-val">—</span></div>
+        <div class="legal-row"><span class="legal-key">SWIFT:</span><span class="legal-val">—</span></div>
+      </div>
+
+      <div class="legal-accordion">
+        <details class="legal-item">
+          <summary>General terms of use</summary>
+          <div class="legal-content">
+            <p>By using this website you fully accept these terms. The content is informational in nature and may be changed without prior notice.</p>
+            <p>FRONT DEVELOPMENT d.o.o. reserves the right to modify the specifications, areas and other characteristics of the project during development and construction. Only the information from the signed purchase agreement is binding.</p>
+          </div>
+        </details>
+        <details class="legal-item">
+          <summary>Personal data protection policy</summary>
+          <div class="legal-content">
+            <p>FRONT DEVELOPMENT d.o.o. uses personal data collected through the contact form (name, phone number, e-mail, message) exclusively to respond to your inquiry, schedule a visit or deliver a personalised offer.</p>
+            <p>Your data is not shared with third parties, not used for marketing purposes without your consent, and is kept only as long as necessary to complete the stated communication.</p>
+            <p>In accordance with the General Data Protection Regulation (GDPR), you have the right to request access, correction, restriction of processing or deletion of your personal data by sending a request to <a href="mailto:sales@front.hr">sales@front.hr</a>.</p>
+          </div>
+        </details>
+        <details class="legal-item">
+          <summary>Liability and limitations</summary>
+          <div class="legal-content">
+            <p>All information, photographs, visualisations and floor plans on this website are for informational and illustrative purposes only. The actual appearance, dimensions, room layout and materials may differ from those shown.</p>
+            <p>FRONT DEVELOPMENT d.o.o. assumes no responsibility for any errors, inconsistencies or deviations of the displayed content from the actual state. Only the information from the signed purchase agreement is binding.</p>
+          </div>
+        </details>
+        <details class="legal-item">
+          <summary>Copyright</summary>
+          <div class="legal-content">
+            <p>All content on this website (text, photographs, visualisations, floor plans, logos) is the property of FRONT DEVELOPMENT d.o.o. and is protected by copyright.</p>
+            <p>Any copying, distribution, public display or use of the content without the written permission of the owner is strictly prohibited.</p>
+          </div>
+        </details>
       </div>
     </div>
   </div>
@@ -929,9 +1044,9 @@ a.contact-value:hover { color: var(--primary-light); }
     <div class="footer-col">
       <h4>Front Development d.o.o.</h4>
       <ul class="footer-legal">
-        <li>OIB: XXXXXXXXXXX</li>
-        <li>MBS: XXXXXXXX</li>
-        <li>IBAN: HRXX XXXX XXXX XXXX X</li>
+        <li>OIB: 08161898502</li>
+        <li>MBS: 081563243</li>
+        <li>sales@front.hr</li>
       </ul>
     </div>
   </div>
