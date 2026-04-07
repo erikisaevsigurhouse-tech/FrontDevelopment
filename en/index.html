@@ -587,6 +587,116 @@ a.contact-value:hover { color: var(--primary-light); }
   .legal-content { padding: 0 16px 16px; font-size: 12px; }
 }
 
+
+/* PHONE INPUT WITH COUNTRY SELECTOR */
+.phone-wrap {
+  display: flex;
+  gap: 8px;
+  position: relative;
+}
+.phone-country {
+  position: relative;
+  flex-shrink: 0;
+}
+.phone-country-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 14px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 6px;
+  color: #fff;
+  font-family: inherit;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+  height: 100%;
+  min-width: 110px;
+  white-space: nowrap;
+}
+.phone-country-btn:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); }
+.phone-country-btn.open { border-color: var(--primary-light); background: rgba(255,255,255,0.1); }
+.phone-flag { font-size: 18px; line-height: 1; display: inline-block; }
+.phone-code { font-weight: 500; }
+.phone-arrow { width: 10px; height: 10px; margin-left: auto; transition: transform 0.2s; opacity: 0.6; }
+.phone-country-btn.open .phone-arrow { transform: rotate(180deg); }
+.phone-input {
+  flex: 1;
+  min-width: 0;
+}
+.phone-dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  background: #1f2630;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 8px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+  max-height: 320px;
+  display: none;
+  flex-direction: column;
+  z-index: 50;
+  overflow: hidden;
+}
+.phone-dropdown.open { display: flex; }
+.phone-search-wrap {
+  padding: 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.phone-search {
+  width: 100%;
+  padding: 9px 12px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 6px;
+  color: #fff;
+  font-family: inherit;
+  font-size: 13px;
+  outline: none;
+}
+.phone-search:focus { border-color: var(--primary-light); }
+.phone-list {
+  overflow-y: auto;
+  max-height: 240px;
+  padding: 4px 0;
+}
+.phone-list::-webkit-scrollbar { width: 8px; }
+.phone-list::-webkit-scrollbar-track { background: transparent; }
+.phone-list::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 4px; }
+.phone-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  cursor: pointer;
+  transition: background 0.15s;
+  color: #fff;
+  font-size: 13px;
+}
+.phone-option:hover, .phone-option.highlighted {
+  background: rgba(0,112,125,0.25);
+}
+.phone-option.selected {
+  color: var(--primary-light);
+}
+.phone-option .phone-flag { font-size: 18px; }
+.phone-option .phone-name { flex: 1; }
+.phone-option .phone-opt-code { color: rgba(255,255,255,0.5); font-size: 12px; }
+.phone-no-results {
+  padding: 16px;
+  text-align: center;
+  color: rgba(255,255,255,0.4);
+  font-size: 13px;
+}
+
+@media (max-width: 720px) {
+  .phone-country-btn { min-width: 96px; padding: 10px 12px; font-size: 13px; }
+  .phone-flag { font-size: 16px; }
+  .phone-dropdown { max-height: 280px; }
+}
+
 </style>
 </head>
 <body>
@@ -912,7 +1022,26 @@ a.contact-value:hover { color: var(--primary-light); }
           </div>
           <input type="hidden" name="purpose" id="form-purpose" value="info">
           <div class="form-row"><label for="name">Full name *</label><input type="text" id="name" name="name" required></div>
-          <div class="form-row"><label for="phone">Phone number *</label><input type="tel" id="phone" name="phone" required></div>
+          <div class="form-row">
+            <label for="phone">Phone number *</label>
+            <div class="phone-wrap">
+              <div class="phone-country">
+                <button type="button" class="phone-country-btn" id="phone-country-btn" aria-label="Select country">
+                  <span class="phone-flag" id="phone-flag-display">🇭🇷</span>
+                  <span class="phone-code" id="phone-code-display">+385</span>
+                  <svg class="phone-arrow" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 4.5l3 3 3-3"/></svg>
+                </button>
+                <div class="phone-dropdown" id="phone-dropdown">
+                  <div class="phone-search-wrap">
+                    <input type="text" class="phone-search" id="phone-search" placeholder="Search...">
+                  </div>
+                  <div class="phone-list" id="phone-list"></div>
+                </div>
+              </div>
+              <input type="tel" id="phone" name="phone-number" class="phone-input" required placeholder="91 234 5678">
+              <input type="hidden" name="phone" id="phone-full">
+            </div>
+          </div>
           <div class="form-row"><label for="email">Email</label><input type="email" id="email" name="email"></div>
           <div class="form-row"><label for="message">Your message</label><textarea id="message" name="message" rows="3"></textarea></div>
           <div class="form-row form-consent">
@@ -950,10 +1079,6 @@ a.contact-value:hover { color: var(--primary-light); }
         <div class="legal-row"><span class="legal-key">E-mail:</span><span class="legal-val"><a href="mailto:sales@front.hr">sales@front.hr</a></span></div>
         <div class="legal-row"><span class="legal-key">Phone:</span><span class="legal-val"><a href="tel:+385916163152">+385 91 616 3152</a></span></div>
 
-        <h3 class="legal-section-title">Bank account</h3>
-        <div class="legal-row"><span class="legal-key">IBAN:</span><span class="legal-val">—</span></div>
-        <div class="legal-row"><span class="legal-key">Bank name:</span><span class="legal-val">—</span></div>
-        <div class="legal-row"><span class="legal-key">SWIFT:</span><span class="legal-val">—</span></div>
       </div>
 
       <div class="legal-accordion">
@@ -1264,6 +1389,140 @@ var IMG_PREFIX = "../";
     cookieBanner.setAttribute('hidden', '');
   });
 })();
+
+
+  // PHONE COUNTRY SELECTOR
+  (function() {
+    var COUNTRIES = [
+      {code:'HR',name:'Hrvatska',flag:'🇭🇷',dial:'+385'},
+      {code:'UA',name:'Ukrajina / Україна',flag:'🇺🇦',dial:'+380'},
+      {code:'PL',name:'Poljska / Polska',flag:'🇵🇱',dial:'+48'},
+      {code:'DE',name:'Njemačka / Deutschland',flag:'🇩🇪',dial:'+49'},
+      {code:'GB',name:'Velika Britanija / UK',flag:'🇬🇧',dial:'+44'},
+      {code:'AT',name:'Austrija / Österreich',flag:'🇦🇹',dial:'+43'},
+      {code:'IT',name:'Italija / Italia',flag:'🇮🇹',dial:'+39'},
+      {code:'SI',name:'Slovenija',flag:'🇸🇮',dial:'+386'},
+      {code:'BA',name:'Bosna i Hercegovina',flag:'🇧🇦',dial:'+387'},
+      {code:'RS',name:'Srbija',flag:'🇷🇸',dial:'+381'},
+      {code:'ME',name:'Crna Gora',flag:'🇲🇪',dial:'+382'},
+      {code:'MK',name:'Sjeverna Makedonija',flag:'🇲🇰',dial:'+389'},
+      {code:'HU',name:'Mađarska / Magyarország',flag:'🇭🇺',dial:'+36'},
+      {code:'CZ',name:'Češka / Česko',flag:'🇨🇿',dial:'+420'},
+      {code:'SK',name:'Slovačka / Slovensko',flag:'🇸🇰',dial:'+421'},
+      {code:'RO',name:'Rumunjska / România',flag:'🇷🇴',dial:'+40'},
+      {code:'BG',name:'Bugarska / България',flag:'🇧🇬',dial:'+359'},
+      {code:'GR',name:'Grčka / Ελλάδα',flag:'🇬🇷',dial:'+30'},
+      {code:'FR',name:'Francuska / France',flag:'🇫🇷',dial:'+33'},
+      {code:'ES',name:'Španjolska / España',flag:'🇪🇸',dial:'+34'},
+      {code:'PT',name:'Portugal',flag:'🇵🇹',dial:'+351'},
+      {code:'NL',name:'Nizozemska / Nederland',flag:'🇳🇱',dial:'+31'},
+      {code:'BE',name:'Belgija / België',flag:'🇧🇪',dial:'+32'},
+      {code:'LU',name:'Luksemburg',flag:'🇱🇺',dial:'+352'},
+      {code:'CH',name:'Švicarska / Schweiz',flag:'🇨🇭',dial:'+41'},
+      {code:'IE',name:'Irska / Ireland',flag:'🇮🇪',dial:'+353'},
+      {code:'DK',name:'Danska / Danmark',flag:'🇩🇰',dial:'+45'},
+      {code:'SE',name:'Švedska / Sverige',flag:'🇸🇪',dial:'+46'},
+      {code:'NO',name:'Norveška / Norge',flag:'🇳🇴',dial:'+47'},
+      {code:'FI',name:'Finska / Suomi',flag:'🇫🇮',dial:'+358'},
+      {code:'EE',name:'Estonija / Eesti',flag:'🇪🇪',dial:'+372'},
+      {code:'LV',name:'Latvija',flag:'🇱🇻',dial:'+371'},
+      {code:'LT',name:'Litva / Lietuva',flag:'🇱🇹',dial:'+370'},
+      {code:'IS',name:'Island',flag:'🇮🇸',dial:'+354'},
+      {code:'TR',name:'Turska / Türkiye',flag:'🇹🇷',dial:'+90'},
+      {code:'RU',name:'Rusija / Россия',flag:'🇷🇺',dial:'+7'},
+      {code:'BY',name:'Bjelorusija / Беларусь',flag:'🇧🇾',dial:'+375'},
+      {code:'MD',name:'Moldavija',flag:'🇲🇩',dial:'+373'},
+      {code:'GE',name:'Gruzija',flag:'🇬🇪',dial:'+995'},
+      {code:'AL',name:'Albanija',flag:'🇦🇱',dial:'+355'},
+      {code:'XK',name:'Kosovo',flag:'🇽🇰',dial:'+383'},
+      {code:'US',name:'SAD / USA',flag:'🇺🇸',dial:'+1'},
+      {code:'CA',name:'Kanada / Canada',flag:'🇨🇦',dial:'+1'},
+      {code:'AE',name:'UAE',flag:'🇦🇪',dial:'+971'},
+      {code:'CN',name:'Kina / China',flag:'🇨🇳',dial:'+86'},
+      {code:'JP',name:'Japan',flag:'🇯🇵',dial:'+81'},
+      {code:'AU',name:'Australija',flag:'🇦🇺',dial:'+61'}
+    ];
+
+    var btn = document.getElementById('phone-country-btn');
+    var dropdown = document.getElementById('phone-dropdown');
+    var list = document.getElementById('phone-list');
+    var search = document.getElementById('phone-search');
+    var flagDisplay = document.getElementById('phone-flag-display');
+    var codeDisplay = document.getElementById('phone-code-display');
+    var phoneInput = document.getElementById('phone');
+    var phoneFull = document.getElementById('phone-full');
+    if (!btn || !dropdown) return;
+
+    var selectedDial = '+385';
+    var selectedCode = 'HR';
+
+    function renderList(filter) {
+      filter = (filter || '').toLowerCase().trim();
+      var filtered = COUNTRIES.filter(function(c) {
+        if (!filter) return true;
+        return c.name.toLowerCase().indexOf(filter) !== -1 ||
+               c.code.toLowerCase().indexOf(filter) !== -1 ||
+               c.dial.indexOf(filter) !== -1;
+      });
+      if (!filtered.length) {
+        list.innerHTML = '<div class="phone-no-results">Nema rezultata</div>';
+        return;
+      }
+      var html = '';
+      for (var i = 0; i < filtered.length; i++) {
+        var c = filtered[i];
+        var sel = c.code === selectedCode ? ' selected' : '';
+        html += '<div class="phone-option' + sel + '" data-code="' + c.code + '" data-dial="' + c.dial + '" data-flag="' + c.flag + '">';
+        html += '<span class="phone-flag">' + c.flag + '</span>';
+        html += '<span class="phone-name">' + c.name + '</span>';
+        html += '<span class="phone-opt-code">' + c.dial + '</span>';
+        html += '</div>';
+      }
+      list.innerHTML = html;
+      var opts = list.querySelectorAll('.phone-option');
+      for (var j = 0; j < opts.length; j++) {
+        opts[j].addEventListener('click', function() {
+          selectedCode = this.getAttribute('data-code');
+          selectedDial = this.getAttribute('data-dial');
+          flagDisplay.textContent = this.getAttribute('data-flag');
+          codeDisplay.textContent = selectedDial;
+          updateFullPhone();
+          closeDropdown();
+        });
+      }
+    }
+
+    function updateFullPhone() {
+      var num = (phoneInput.value || '').replace(/[^0-9]/g, '');
+      phoneFull.value = num ? selectedDial + ' ' + num : '';
+    }
+
+    function openDropdown() {
+      dropdown.classList.add('open');
+      btn.classList.add('open');
+      search.value = '';
+      renderList('');
+      setTimeout(function() { search.focus(); }, 50);
+    }
+    function closeDropdown() {
+      dropdown.classList.remove('open');
+      btn.classList.remove('open');
+    }
+
+    btn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      if (dropdown.classList.contains('open')) closeDropdown();
+      else openDropdown();
+    });
+    search.addEventListener('input', function() { renderList(this.value); });
+    search.addEventListener('click', function(e) { e.stopPropagation(); });
+    document.addEventListener('click', function(e) {
+      if (!dropdown.contains(e.target) && !btn.contains(e.target)) closeDropdown();
+    });
+    phoneInput.addEventListener('input', updateFullPhone);
+    renderList('');
+    updateFullPhone();
+  })();
 
   // LIGHTBOX
   (function() {
