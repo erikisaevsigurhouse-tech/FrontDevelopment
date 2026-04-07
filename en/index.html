@@ -30,110 +30,6 @@
 
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"RealEstateAgent","name":"Front Development d.o.o.","url":"https://front.hr","image":"https://front.hr/exterior-front.jpg","description":"Front Development is building a modern residential building on Horvatova Street in Zagreb — 19 apartments, underground garage and contemporary architecture.","telephone":"+385916163152","email":"info@front.hr","address":{"@type":"PostalAddress","streetAddress":"Horvatova ulica","addressLocality":"Zagreb","postalCode":"10000","addressCountry":"HR"},"geo":{"@type":"GeoCoordinates","latitude":45.763233,"longitude":15.977296}}
-
-  // LIGHTBOX
-  (function() {
-    var lb = document.getElementById('lightbox');
-    var lbImg = document.getElementById('lb-img');
-    var lbClose = document.getElementById('lb-close');
-    var lbPrev = document.getElementById('lb-prev');
-    var lbNext = document.getElementById('lb-next');
-    var lbCounter = document.getElementById('lb-counter');
-    if (!lb) return;
-
-    var currentList = [];
-    var currentIdx = 0;
-
-    function open(list, idx) {
-      currentList = list;
-      currentIdx = idx;
-      show();
-      lb.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-    function show() {
-      lbImg.src = currentList[currentIdx];
-      lbCounter.textContent = (currentIdx + 1) + ' / ' + currentList.length;
-    }
-    function close() {
-      lb.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-    function next() {
-      currentIdx = (currentIdx + 1) % currentList.length;
-      show();
-    }
-    function prev() {
-      currentIdx = (currentIdx - 1 + currentList.length) % currentList.length;
-      show();
-    }
-
-    lbClose.addEventListener('click', close);
-    lbPrev.addEventListener('click', function(e) { e.stopPropagation(); prev(); });
-    lbNext.addEventListener('click', function(e) { e.stopPropagation(); next(); });
-    lb.addEventListener('click', function(e) {
-      if (e.target === lb || e.target.classList.contains('lightbox-img-wrap')) close();
-    });
-    document.addEventListener('keydown', function(e) {
-      if (!lb.classList.contains('active')) return;
-      if (e.key === 'Escape') close();
-      else if (e.key === 'ArrowRight') next();
-      else if (e.key === 'ArrowLeft') prev();
-    });
-
-    // Touch swipe
-    var touchStartX = 0;
-    lb.addEventListener('touchstart', function(e) { touchStartX = e.touches[0].clientX; }, {passive: true});
-    lb.addEventListener('touchend', function(e) {
-      var dx = e.changedTouches[0].clientX - touchStartX;
-      if (Math.abs(dx) > 50) { if (dx < 0) next(); else prev(); }
-    }, {passive: true});
-
-    // Build galleries:
-    // 1. Main gallery section
-    var galleryItems = document.querySelectorAll('.gallery-item img');
-    var galleryUrls = [];
-    for (var i = 0; i < galleryItems.length; i++) galleryUrls.push(galleryItems[i].src);
-    for (var i = 0; i < galleryItems.length; i++) {
-      (function(idx) {
-        galleryItems[idx].parentElement.addEventListener('click', function() {
-          open(galleryUrls, idx);
-        });
-      })(i);
-    }
-
-    // 2. About carousel
-    var carouselImgs = document.querySelectorAll('.carousel-track img');
-    var carouselUrls = [];
-    for (var i = 0; i < carouselImgs.length; i++) carouselUrls.push(carouselImgs[i].src);
-    for (var i = 0; i < carouselImgs.length; i++) {
-      (function(idx) {
-        carouselImgs[idx].addEventListener('click', function(e) {
-          e.stopPropagation();
-          open(carouselUrls, idx);
-        });
-      })(i);
-    }
-
-    // 3. Apartment plans (delegated since they are dynamically rendered)
-    var aptGrid = document.getElementById('apt-grid');
-    if (aptGrid) {
-      aptGrid.addEventListener('click', function(e) {
-        var img = e.target.closest('.apt-plan img');
-        if (!img) return;
-        // Build list of currently visible apartment plan images
-        var visibleImgs = aptGrid.querySelectorAll('.apt-plan img');
-        var urls = [];
-        var clickedIdx = 0;
-        for (var i = 0; i < visibleImgs.length; i++) {
-          urls.push(visibleImgs[i].src);
-          if (visibleImgs[i] === img) clickedIdx = i;
-        }
-        open(urls, clickedIdx);
-      });
-    }
-  })();
-
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1223,6 +1119,109 @@ var IMG_PREFIX = "../";
     cookieBanner.setAttribute('hidden', '');
   });
 })();
+
+  // LIGHTBOX
+  (function() {
+    var lb = document.getElementById('lightbox');
+    var lbImg = document.getElementById('lb-img');
+    var lbClose = document.getElementById('lb-close');
+    var lbPrev = document.getElementById('lb-prev');
+    var lbNext = document.getElementById('lb-next');
+    var lbCounter = document.getElementById('lb-counter');
+    if (!lb) return;
+
+    var currentList = [];
+    var currentIdx = 0;
+
+    function openLB(list, idx) {
+      currentList = list;
+      currentIdx = idx;
+      showLB();
+      lb.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function showLB() {
+      lbImg.src = currentList[currentIdx];
+      lbCounter.textContent = (currentIdx + 1) + ' / ' + currentList.length;
+    }
+    function closeLB() {
+      lb.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    function nextLB() {
+      currentIdx = (currentIdx + 1) % currentList.length;
+      showLB();
+    }
+    function prevLB() {
+      currentIdx = (currentIdx - 1 + currentList.length) % currentList.length;
+      showLB();
+    }
+
+    lbClose.addEventListener('click', closeLB);
+    lbPrev.addEventListener('click', function(e) { e.stopPropagation(); prevLB(); });
+    lbNext.addEventListener('click', function(e) { e.stopPropagation(); nextLB(); });
+    lb.addEventListener('click', function(e) {
+      if (e.target === lb || e.target.classList.contains('lightbox-img-wrap')) closeLB();
+    });
+    document.addEventListener('keydown', function(e) {
+      if (!lb.classList.contains('active')) return;
+      if (e.key === 'Escape') closeLB();
+      else if (e.key === 'ArrowRight') nextLB();
+      else if (e.key === 'ArrowLeft') prevLB();
+    });
+
+    // Touch swipe
+    var touchStartX = 0;
+    lb.addEventListener('touchstart', function(e) { touchStartX = e.touches[0].clientX; }, {passive: true});
+    lb.addEventListener('touchend', function(e) {
+      var dx = e.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(dx) > 50) { if (dx < 0) nextLB(); else prevLB(); }
+    }, {passive: true});
+
+    // 1. Gallery section
+    var galleryItems = document.querySelectorAll('.gallery-item img');
+    var galleryUrls = [];
+    for (var gi = 0; gi < galleryItems.length; gi++) galleryUrls.push(galleryItems[gi].src);
+    for (var gi = 0; gi < galleryItems.length; gi++) {
+      (function(idx) {
+        galleryItems[idx].parentElement.addEventListener('click', function() {
+          openLB(galleryUrls, idx);
+        });
+      })(gi);
+    }
+
+    // 2. About carousel
+    var carouselImgs = document.querySelectorAll('.carousel-track img');
+    var carouselUrls = [];
+    for (var ci = 0; ci < carouselImgs.length; ci++) carouselUrls.push(carouselImgs[ci].src);
+    for (var ci = 0; ci < carouselImgs.length; ci++) {
+      (function(idx) {
+        carouselImgs[idx].addEventListener('click', function(e) {
+          e.stopPropagation();
+          openLB(carouselUrls, idx);
+        });
+      })(ci);
+    }
+
+    // 3. Apartment plans (delegated since dynamically rendered)
+    var aptGrid = document.getElementById('apt-grid');
+    if (aptGrid) {
+      aptGrid.addEventListener('click', function(e) {
+        var img = e.target.closest ? e.target.closest('img') : null;
+        if (!img || !img.parentElement || !img.parentElement.classList.contains('apt-plan')) return;
+        e.preventDefault();
+        e.stopPropagation();
+        var visibleImgs = aptGrid.querySelectorAll('.apt-plan img');
+        var urls = [];
+        var clickedIdx = 0;
+        for (var ai = 0; ai < visibleImgs.length; ai++) {
+          urls.push(visibleImgs[ai].src);
+          if (visibleImgs[ai] === img) clickedIdx = ai;
+        }
+        openLB(urls, clickedIdx);
+      });
+    }
+  })();
 </script>
 
 </body>
